@@ -1,0 +1,27 @@
+{% extends "generator/base.html" %}
+
+{% block head %}
+    <title>Password Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <div style="text-align: center;", class="container">
+        <h1>Password generator</h1>
+        <form action="{% url 'password' %}">
+            <b>Password length: <b>
+            <br>
+            <input type="text" name="length">
+            <br>
+            <input type="checkbox", name="numbers"> <b>Numbers</b>
+            <br>
+            <input type="checkbox" name="capital"> <b>Capital Letters</b>
+            <br>
+            <input type="checkbox", name="special"> <b>Special Characters</b>
+            <br>
+            <br>
+            <input type="submit" value="Generate" class="btn btn-primary">
+        </form>
+    </div>
+
+{% endblock %}
