@@ -8,10 +8,12 @@
 {% block body %}
     <div style="text-align: center;", class="container">
         <h1>Password generator</h1>
-        <form action="{% url 'password' %}">
+        <form action="{% url 'password' %}" id="password_form">
             <b>Password length: <b>
             <br>
-            <input type="text" name="length">
+            <input type="text" name="length" id="password_length">
+            <br>
+            <label id="error_label"></label>
             <br>
             <input type="checkbox", name="numbers"> <b>Numbers</b>
             <br>
@@ -20,8 +22,18 @@
             <input type="checkbox", name="special"> <b>Special Characters</b>
             <br>
             <br>
-            <input type="submit" value="Generate" class="btn btn-primary">
+            <input type="submit" value="Generate" id="button" class="btn btn-primary">
         </form>
     </div>
+
+    <script>
+        document.getElementById("button").onclick = function() {
+            let length = document.getElementById("password_length").value
+            if(length.trim() === "") {
+                document.getElementById("error_label").innerHTML="Please enter the length"
+                event.preventDefault()
+            }
+        }
+    </script>
 
 {% endblock %}

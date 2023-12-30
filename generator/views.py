@@ -17,15 +17,12 @@ def passowrd(request):
         letters.extend(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
     if request.GET.get('special'):
         letters.extend(list('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'))
-
-    
-
-    
     thepassword = ''
     for i in range(length):
         thepassword +=  random.choice(letters)
     
     return render(request, 'generator/password.html', {"password":thepassword})
+    
     
 
 # Create your views here.
