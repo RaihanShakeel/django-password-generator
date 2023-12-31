@@ -13,7 +13,7 @@
             <br>
             <input type="text" name="length" id="password_length">
             <br>
-            <label id="error_label"></label>
+            <label id="error_label" style="color: tomato;"></label>
             <br>
             <input type="checkbox", name="numbers"> <b>Numbers</b>
             <br>
@@ -29,8 +29,12 @@
     <script>
         document.getElementById("button").onclick = function() {
             let length = document.getElementById("password_length").value
-            if(length.trim() === "") {
+            if(length.trim()==""){
                 document.getElementById("error_label").innerHTML="Please enter the length"
+                event.preventDefault()
+            }
+            else if(isNaN(length)){
+                document.getElementById("error_label").innerHTML="Please Enter a number for length"
                 event.preventDefault()
             }
         }
